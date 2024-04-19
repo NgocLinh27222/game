@@ -1,282 +1,9 @@
 # depslib dependency file v1.0
-1712684486 source:c:\game\src\map.cpp
-	"Map.h"
-
-1712678663 c:\game\include\map.hpp
-	"Game.hpp"
-	"TextureManager.hpp"
-
-1712680638 c:\game\include\game.hpp
-	"SDL.h"
-	"SDL_image.h"
-	"SDL_ttf.h"
-	"SDL_mixer.h"
-	<iostream>
-	<stdlib.h>
-	<ctime>
-	<cstdlib>
-	<windows.h>
-	<stdio.h>
-	<conio.h>
-	<chrono>
-	<climits>
-	"Console.hpp"
-	"Vector2D.hpp"
-
-1712678663 c:\game\include\console.hpp
-
-1712678663 c:\game\include\vector2d.hpp
-	<iostream>
-
-1712678663 c:\game\include\texturemanager.hpp
-	"Game.hpp"
-
-1712684486 source:c:\game\src\texturemanager.cpp
-	"TextureManager.h"
-
-1712684486 source:c:\game\src\audio.cpp
-	"Audio.h"
-
-1712680701 c:\game\include\audio.hpp
-	"Game.hpp"
-	"SDL_mixer.h"
-
-1712684486 source:c:\game\src\aisnake.cpp
-	"AISnake.h"
-
-1712678663 c:\game\include\aisnake.hpp
-	"Snake.hpp"
-	"Timer.hpp"
-	"TextureManager.hpp"
-
-1712678663 c:\game\include\snake.hpp
-	"Game.hpp"
-	"Audio.hpp"
-	"Tails.hpp"
-	"Score.hpp"
-
-1712678663 c:\game\include\tails.hpp
-	"Game.hpp"
-	<vector>
-
-1712678663 c:\game\include\score.hpp
-	"Game.hpp"
-	"GameText.hpp"
-	"TextureManager.hpp"
-	<iostream>
-	<fstream>
-	<vector>
-
-1712680713 c:\game\include\gametext.hpp
-	"Game.hpp"
-	<string>
-	"SDL_ttf.h"
-
-1712678663 c:\game\include\timer.hpp
-	"Game.hpp"
-	"GameText.hpp"
-	"TextureManager.hpp"
-	<time.h>
-
-1712684486 source:c:\game\src\fruit.cpp
-	"Fruit.h"
-	"TextureManager.h"
-	"Snake.h"
-
-1712678663 c:\game\include\fruit.hpp
-	"Game.hpp"
-
-1712684486 source:c:\game\src\game.cpp
-	"Game.h"
-	"TextureManager.h"
-	"Snake.h"
-	"Fruit.h"
-	"Score.h"
-	"Map.h"
-	"Snake2.h"
-	"Menu.h"
-	"AISnake.h"
-	<string>
-
-1712678663 c:\game\include\snake2.hpp
-	"Snake.hpp"
-	"Timer.hpp"
-	"TextureManager.hpp"
-
-1712678663 c:\game\include\menu.hpp
-	"Game.hpp"
-	"GameText.hpp"
-	"Score.hpp"
-	"Audio.hpp"
-
-1712684486 source:c:\game\src\gametext.cpp
-	"GameText.h"
-
-1712684486 source:c:\game\src\main.cpp
-	"SDL.h"
-	"SDL_image.h"
-	<iostream>
-	<stdlib.h>
-	<ctime>
-	<cstdlib>
-	<windows.h>
-	<stdio.h>
-	<conio.h>
-	"Game.h"
-	"Menu.h"
-	"Audio.h"
-	"TextureManager.h"
-
-1712684486 source:c:\game\src\menu.cpp
-	"Menu.h"
-	"TextureManager.h"
-
-1712684486 source:c:\game\src\score.cpp
-	"Score.h"
-
-1712684486 source:c:\game\src\snake.cpp
-	"Snake.h"
-	"TextureManager.h"
-	"Fruit.h"
-
-1712684486 source:c:\game\src\snake2.cpp
-	"Snake2.h"
-
-1712684486 source:c:\game\src\tails.cpp
-	"Tails.h"
-	"TextureManager.h"
-	"Snake.h"
-
-1712684486 source:c:\game\src\timer.cpp
-	"Timer.h"
-
-1712678665 source:c:\game\src\vector2d.cpp
-
-1712684486 c:\game\include\aisnake.h
-	"Snake.h"
-	"Timer.h"
-	"TextureManager.h"
-
-1712684486 c:\game\include\snake.h
-	"Game.h"
-	"Audio.h"
-	"Tails.h"
-	"Score.h"
-
-1712684486 c:\game\include\game.h
-	"SDL.h"
-	"SDL_image.h"
-	"SDL_ttf.h"
-	"SDL_mixer.h"
-	<iostream>
-	<stdlib.h>
-	<ctime>
-	<cstdlib>
-	<windows.h>
-	<stdio.h>
-	<conio.h>
-	<chrono>
-	<climits>
-	"Console.h"
-	"Vector2D.h"
-
-1712678663 c:\game\include\console.h
-
-1712678663 c:\game\include\vector2d.h
-	<iostream>
-
-1712684486 c:\game\include\audio.h
-	"Game.h"
-	"SDL_mixer.h"
-
-1712684486 c:\game\include\tails.h
-	"Game.h"
-	<vector>
-
-1712684486 c:\game\include\score.h
-	"Game.h"
-	"GameText.h"
-	"TextureManager.h"
-	<iostream>
-	<fstream>
-	<vector>
-
-1712684486 c:\game\include\gametext.h
-	"Game.h"
-	<string>
-	"SDL_ttf.h"
-
-1712684486 c:\game\include\texturemanager.h
-	"Game.h"
-
-1712684486 c:\game\include\timer.h
-	"Game.h"
-	"GameText.h"
-	"TextureManager.h"
-	<time.h>
-
-1712684486 c:\game\include\fruit.h
-	"Game.h"
-
-1712684486 c:\game\include\map.h
-	"Game.h"
-	"TextureManager.h"
-
-1712684486 c:\game\include\snake2.h
-	"Snake.h"
-	"Timer.h"
-	"TextureManager.h"
-
-1712684486 c:\game\include\menu.h
-	"Game.h"
-	"GameText.h"
-	"Score.h"
-	"Audio.h"
-
-1713506986 source:c:\game\main.cpp
+1713527376 source:c:\users\adm\documents\github\game\main.cpp
 	"Game.h"
 	"Menu.h"
 
-1713506986 c:\game\src\core\game.h
-	"SDL.h"
-	"SDL_image.h"
-	"SDL_ttf.h"
-	"SDL_mixer.h"
-	<iostream>
-	<windows.h>
-	<ctime>
-	<cstdlib>
-	"General.h"
-	"Vector2D.h"
-
-1712678663 c:\game\src\core\console.h
-
-1712854708 c:\game\src\snake\vector2d.h
-	<iostream>
-
-1713017121 c:\game\src\menu\menu.h
-	"Game.h"
-	"GameText.h"
-	"Score.h"
-	"Audio.h"
-
-1712843004 c:\game\src\menu\gametext.h
-	"Game.h"
-	<string>
-
-1713404908 c:\game\src\snake\score.h
-	"Game.h"
-	"GameText.h"
-	"TextureManager.h"
-	<fstream>
-
-1713405057 c:\game\src\core\texturemanager.h
-	"Game.h"
-
-1712845157 c:\game\src\menu\audio.h
-	"Game.h"
-
-1713508447 source:c:\game\src\core\game.cpp
+1713508447 source:c:\users\adm\documents\github\game\src\core\game.cpp
 	"Game.h"
 	"TextureManager.h"
 	"Snake.h"
@@ -286,91 +13,6 @@
 	"Snake2.h"
 	"Menu.h"
 	<string>
-
-1713415874 c:\game\src\snake\snake.h
-	"Game.h"
-	"Audio.h"
-	"Tails.h"
-	"Score.h"
-	"Map.h"
-
-1713025556 c:\game\src\snake\tails.h
-	"Game.h"
-	<vector>
-
-1713403712 c:\game\src\snake\fruit.h
-	"Game.h"
-
-1713425404 c:\game\src\map\map.h
-	"Game.h"
-	"TextureManager.h"
-
-1713508689 c:\game\src\snake\snake2.h
-	"Snake.h"
-	"Timer.h"
-	"TextureManager.h"
-
-1713024759 c:\game\src\menu\timer.h
-	"Game.h"
-	"GameText.h"
-	"TextureManager.h"
-	<time.h>
-
-1712686275 c:\game\src\snake\aisnake.h
-	"Snake.h"
-	"Timer.h"
-	"TextureManager.h"
-
-1712857489 source:c:\game\src\core\texturemanager.cpp
-	"TextureManager.h"
-
-1713425404 source:c:\game\src\map\map.cpp
-	"Map.h"
-	<fstream>
-
-1713024697 source:c:\game\src\menu\audio.cpp
-	"Audio.h"
-
-1712843013 source:c:\game\src\menu\gametext.cpp
-	"GameText.h"
-
-1713096432 source:c:\game\src\menu\menu.cpp
-	"Menu.h"
-	"TextureManager.h"
-
-1712846268 source:c:\game\src\menu\timer.cpp
-	"Timer.h"
-
-1712684486 source:c:\game\src\snake\aisnake.cpp
-	"AISnake.h"
-
-1713507447 source:c:\game\src\snake\fruit.cpp
-	"Fruit.h"
-	"TextureManager.h"
-
-1712917892 source:c:\game\src\snake\score.cpp
-	"Score.h"
-
-1713421246 source:c:\game\src\snake\snake.cpp
-	"Snake.h"
-	"Fruit.h"
-	"TextureManager.h"
-
-1713508648 source:c:\game\src\snake\snake2.cpp
-	"Snake2.h"
-
-1713507515 source:c:\game\src\snake\tails.cpp
-	"Tails.h"
-	"TextureManager.h"
-	"Snake.h"
-
-1712678665 source:c:\game\src\snake\vector2d.cpp
-
-1713508567 c:\game\src\core\general.h
-
-1713506986 source:c:\users\adm\documents\github\game\main.cpp
-	"Game.h"
-	"Menu.h"
 
 1713506986 c:\users\adm\documents\github\game\src\core\game.h
 	"SDL.h"
@@ -386,8 +28,36 @@
 
 1713508567 c:\users\adm\documents\github\game\src\core\general.h
 
-1712854708 c:\users\adm\documents\github\game\src\snake\vector2d.h
-	<iostream>
+1713405057 c:\users\adm\documents\github\game\src\core\texturemanager.h
+	"Game.h"
+
+1712857489 source:c:\users\adm\documents\github\game\src\core\texturemanager.cpp
+	"TextureManager.h"
+
+1713425404 source:c:\users\adm\documents\github\game\src\map\map.cpp
+	"Map.h"
+	<fstream>
+
+1713425404 c:\users\adm\documents\github\game\src\map\map.h
+	"Game.h"
+	"TextureManager.h"
+
+1713024697 source:c:\users\adm\documents\github\game\src\menu\audio.cpp
+	"Audio.h"
+
+1712845157 c:\users\adm\documents\github\game\src\menu\audio.h
+	"Game.h"
+
+1712843013 source:c:\users\adm\documents\github\game\src\menu\gametext.cpp
+	"GameText.h"
+
+1712843004 c:\users\adm\documents\github\game\src\menu\gametext.h
+	"Game.h"
+	<string>
+
+1713096432 source:c:\users\adm\documents\github\game\src\menu\menu.cpp
+	"Menu.h"
+	"TextureManager.h"
 
 1713017121 c:\users\adm\documents\github\game\src\menu\menu.h
 	"Game.h"
@@ -395,9 +65,24 @@
 	"Score.h"
 	"Audio.h"
 
-1712843004 c:\users\adm\documents\github\game\src\menu\gametext.h
+1712846268 source:c:\users\adm\documents\github\game\src\menu\timer.cpp
+	"Timer.h"
+
+1713024759 c:\users\adm\documents\github\game\src\menu\timer.h
 	"Game.h"
-	<string>
+	"GameText.h"
+	"TextureManager.h"
+	<time.h>
+
+1713507447 source:c:\users\adm\documents\github\game\src\snake\fruit.cpp
+	"Fruit.h"
+	"TextureManager.h"
+
+1713403712 c:\users\adm\documents\github\game\src\snake\fruit.h
+	"Game.h"
+
+1712917892 source:c:\users\adm\documents\github\game\src\snake\score.cpp
+	"Score.h"
 
 1713404908 c:\users\adm\documents\github\game\src\snake\score.h
 	"Game.h"
@@ -405,22 +90,10 @@
 	"TextureManager.h"
 	<fstream>
 
-1713405057 c:\users\adm\documents\github\game\src\core\texturemanager.h
-	"Game.h"
-
-1712845157 c:\users\adm\documents\github\game\src\menu\audio.h
-	"Game.h"
-
-1713508447 source:c:\users\adm\documents\github\game\src\core\game.cpp
-	"Game.h"
-	"TextureManager.h"
+1713421246 source:c:\users\adm\documents\github\game\src\snake\snake.cpp
 	"Snake.h"
 	"Fruit.h"
-	"Score.h"
-	"Map.h"
-	"Snake2.h"
-	"Menu.h"
-	<string>
+	"TextureManager.h"
 
 1713415874 c:\users\adm\documents\github\game\src\snake\snake.h
 	"Game.h"
@@ -433,61 +106,19 @@
 	"Game.h"
 	<vector>
 
-1713425404 c:\users\adm\documents\github\game\src\map\map.h
-	"Game.h"
-	"TextureManager.h"
-
-1713403712 c:\users\adm\documents\github\game\src\snake\fruit.h
-	"Game.h"
+1713508648 source:c:\users\adm\documents\github\game\src\snake\snake2.cpp
+	"Snake2.h"
 
 1713508689 c:\users\adm\documents\github\game\src\snake\snake2.h
 	"Snake.h"
 	"Timer.h"
 	"TextureManager.h"
 
-1713024759 c:\users\adm\documents\github\game\src\menu\timer.h
-	"Game.h"
-	"GameText.h"
-	"TextureManager.h"
-	<time.h>
-
-1712857489 source:c:\users\adm\documents\github\game\src\core\texturemanager.cpp
-	"TextureManager.h"
-
-1713425404 source:c:\users\adm\documents\github\game\src\map\map.cpp
-	"Map.h"
-	<fstream>
-
-1713024697 source:c:\users\adm\documents\github\game\src\menu\audio.cpp
-	"Audio.h"
-
-1712843013 source:c:\users\adm\documents\github\game\src\menu\gametext.cpp
-	"GameText.h"
-
-1713096432 source:c:\users\adm\documents\github\game\src\menu\menu.cpp
-	"Menu.h"
-	"TextureManager.h"
-
-1712846268 source:c:\users\adm\documents\github\game\src\menu\timer.cpp
-	"Timer.h"
-
-1713507447 source:c:\users\adm\documents\github\game\src\snake\fruit.cpp
-	"Fruit.h"
-	"TextureManager.h"
-
-1712917892 source:c:\users\adm\documents\github\game\src\snake\score.cpp
-	"Score.h"
-
-1713421246 source:c:\users\adm\documents\github\game\src\snake\snake.cpp
-	"Snake.h"
-	"Fruit.h"
-	"TextureManager.h"
-
-1713508648 source:c:\users\adm\documents\github\game\src\snake\snake2.cpp
-	"Snake2.h"
-
 1713507515 source:c:\users\adm\documents\github\game\src\snake\tails.cpp
 	"Tails.h"
 	"TextureManager.h"
 	"Snake.h"
+
+1712854708 c:\users\adm\documents\github\game\src\snake\vector2d.h
+	<iostream>
 

@@ -17,8 +17,10 @@ int main(int argc, char* argv[]) {
 	GameMenu->Setup();
 
     Home();
+    std::cout << "toi dang o day\n";
     delete game;
 	delete GameMenu;
+	std::cout << "chuong trinh da hoan thanh\n";
 
  	return 0;
 }
