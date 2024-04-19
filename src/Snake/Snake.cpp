@@ -33,8 +33,8 @@ void Snake::Setup(const string& filePath) {
 	game_highestScore.Update(HighestScore, "Highest Score: ");
 
 	//sound
-	eating_sound.loadSound("res/audio/sound/eating.wav");
-	lose_sound.loadSound("res/audio/sound/lose.wav");
+	eating_sound.loadSound("res/audio/sound/eating.mp3");
+	lose_sound.loadSound("res/audio/sound/lose.mp3");
 
 	step.SetPos(0, 0);
 	isMove = false;
@@ -66,8 +66,8 @@ void Snake::Setup2(const string &head_color, const string &body_color, const str
 	game_score.Setup(color);
 
 	//sound
-	eating_sound.loadSound("res/audio/sound/eating.wav");
-	lose_sound.loadSound("res/audio/sound/lose.wav");
+	eating_sound.loadSound("res/audio/sound/eating.mp3");
+	lose_sound.loadSound("res/audio/sound/lose.mp3");
 
 	step.SetPos(0, 0);
 	dir = RIGHT;
