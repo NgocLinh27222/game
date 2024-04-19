@@ -33,6 +33,32 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="main.cpp" />
+		<Unit filename="src/Core/Game.cpp" />
+		<Unit filename="src/Core/Game.h" />
+		<Unit filename="src/Core/General.h" />
+		<Unit filename="src/Core/TextureManager.cpp" />
+		<Unit filename="src/Core/TextureManager.h" />
+		<Unit filename="src/Map/Map.cpp" />
+		<Unit filename="src/Map/Map.h" />
+		<Unit filename="src/Menu/Audio.cpp" />
+		<Unit filename="src/Menu/Audio.h" />
+		<Unit filename="src/Menu/GameText.cpp" />
+		<Unit filename="src/Menu/GameText.h" />
+		<Unit filename="src/Menu/Menu.cpp" />
+		<Unit filename="src/Menu/Menu.h" />
+		<Unit filename="src/Menu/Timer.cpp" />
+		<Unit filename="src/Menu/Timer.h" />
+		<Unit filename="src/Snake/Fruit.cpp" />
+		<Unit filename="src/Snake/Fruit.h" />
+		<Unit filename="src/Snake/Score.cpp" />
+		<Unit filename="src/Snake/Score.h" />
+		<Unit filename="src/Snake/Snake.cpp" />
+		<Unit filename="src/Snake/Snake.h" />
+		<Unit filename="src/Snake/Snake2.cpp" />
+		<Unit filename="src/Snake/Snake2.h" />
+		<Unit filename="src/Snake/Tails.cpp" />
+		<Unit filename="src/Snake/Tails.h" />
+		<Unit filename="src/Snake/Vector2D.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>
