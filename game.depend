@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1713527376 source:c:\users\adm\documents\github\game\main.cpp
+1713572421 source:c:\users\adm\documents\github\game\main.cpp
 	"Game.h"
 	"Menu.h"
 
@@ -42,7 +42,7 @@
 	"Game.h"
 	"TextureManager.h"
 
-1713024697 source:c:\users\adm\documents\github\game\src\menu\audio.cpp
+1713532765 source:c:\users\adm\documents\github\game\src\menu\audio.cpp
 	"Audio.h"
 
 1713532765 c:\users\adm\documents\github\game\src\menu\audio.h
@@ -55,11 +55,11 @@
 	"Game.h"
 	<string>
 
-1713096432 source:c:\users\adm\documents\github\game\src\menu\menu.cpp
+1713573216 source:c:\users\adm\documents\github\game\src\menu\menu.cpp
 	"Menu.h"
 	"TextureManager.h"
 
-1713017121 c:\users\adm\documents\github\game\src\menu\menu.h
+1713575108 c:\users\adm\documents\github\game\src\menu\menu.h
 	"Game.h"
 	"GameText.h"
 	"Score.h"
@@ -90,7 +90,7 @@
 	"TextureManager.h"
 	<fstream>
 
-1713421246 source:c:\users\adm\documents\github\game\src\snake\snake.cpp
+1713532765 source:c:\users\adm\documents\github\game\src\snake\snake.cpp
 	"Snake.h"
 	"Fruit.h"
 	"TextureManager.h"
@@ -114,7 +114,7 @@
 	"Timer.h"
 	"TextureManager.h"
 
-1713507515 source:c:\users\adm\documents\github\game\src\snake\tails.cpp
+1713574435 source:c:\users\adm\documents\github\game\src\snake\tails.cpp
 	"Tails.h"
 	"TextureManager.h"
 	"Snake.h"
