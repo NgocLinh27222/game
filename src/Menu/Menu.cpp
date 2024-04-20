@@ -213,7 +213,7 @@ int Menu::getNumPlayer() {
 					break;
 				case SDL_KEYDOWN:
 					if (m_event.key.keysym.sym == SDLK_ESCAPE) {
-						return 4;
+						return 0;
 					}
 				default:
 					break;
