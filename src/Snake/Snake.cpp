@@ -89,9 +89,6 @@ void Snake::Update() {
 	CheckCollideFood();
 	if (CheckSelfCollide() || CheckCollideBlock())
 		alive = false;
-//    if(isAliveInBoundaryBlock){
-//
-//    }
 
 	if (!isAlive())
 		Game::isRunning = false;
@@ -99,8 +96,6 @@ void Snake::Update() {
 	if (!Game::isRunning)
 		lose_sound.playSound(70);
 }
-
-//bool
 
 void Snake::Update2(const Snake &other) {
 	if (isMove == true) {

@@ -54,6 +54,16 @@ void Tails::Render() {
 		TextureManager::DrawEx(lastTailTexture, tail[total_tail], {size, size}, t_angle[total_tail], SDL_FLIP_NONE);
 	}
 
+    if(t_angle[1] == 90 || t_angle[1] == -90){
+        if( (tail[0].y == 0 && tail[2].y == MAP_HEIGHT-20) || (tail[0].y == MAP_HEIGHT-20 && tail[2].y == 0) )
+            t_angle[1] = t_angle[0];
+    }
+
+    else if( t_angle[1] == 0 || t_angle[1] == 180) {
+        if( (tail[0].x == 0 && tail[2].x == MAP_WIDTH-20) || (tail[0].x == MAP_WIDTH-20 && tail[2].x == 0) )
+            t_angle[1] = t_angle[0];
+    }
+	
 	// Vẽ các trường hợp thân cong và đánh dấu vị trí
 	for (int i = 1; i < total_tail; i++) {
 	    //   x
