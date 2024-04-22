@@ -21,4 +21,4 @@ _ Rắn có thể từ bên trái sang bên phải nhanh chóng...
 
 _ Thêm trạng thái lưu lại màn chơi cũ nếu thoát ra khỏi chương trình (continue và new play) trong chế độ một người chơi.
 
-Ngưỡng điểm xứng đáng: 8.5
+Ngưỡng điểm xứng đáng: 8
