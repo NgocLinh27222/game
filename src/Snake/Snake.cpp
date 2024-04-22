@@ -8,7 +8,7 @@ Snake::~Snake() {
 	FreeTexture();
 }
 
-void Snake::Setup(const string& filePath) {
+void Snake::Setup(const std::string& filePath) {
 	//snake head
 	snakeTexture = TextureManager::LoadTexture(filePath);
 	head.SetPos(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2);
@@ -41,9 +41,47 @@ void Snake::Setup(const string& filePath) {
 	alive = true;
 }
 
-void Snake::Setup2(const string &head_color, const string &body_color, const string &tail_color,
-                    const string &curve_color, const string &curveTail_color,
-                    const Vector2D &startPos, const int &index, const GameText::TextColor &color) {
+void Snake::setupContinueSnake(std::ifstream &file, const std::string &filePath) {
+	snakeTexture = TextureManager::LoadTexture(filePath);
+	//s_flip = SDL_FLIP_NONE;
+
+    file >> tails.total_tail;
+	tails.Setup("res/gfx/Snake/body.png", "res/gfx/Snake/last_tail.png",
+                "res/gfx/Snake/curve.png", "res/gfx/Snake/curve_tail.png", tails.total_tail);
+
+	for (int i = 0; i <= tails.total_tail; i++) {
+		file >> tails.tail[i].x >> tails.tail[i].y;
+		file >> tails.t_angle[i];
+	}
+	head = tails.tail[0];
+	s_angle = tails.t_angle[0];
+
+	file >> score;
+    game_score.Setup(GameText::RED_TEXT);
+	game_highestScore.Setup(GameText::WHITE_TEXT);
+	HighestScore = game_highestScore.getHighestScore();
+	game_highestScore.Update(HighestScore, "Highest Score: ");
+
+    eating_sound.loadSound("res/audio/sound/eating.mp3");
+	lose_sound.loadSound("res/audio/sound/lose.mp3");
+
+	step.SetPos(0, 0);
+	isMove = false;
+	alive = true;
+}
+
+void Snake:: recordContinueSnake(std::ofstream &outfile){
+    outfile << tails.total_tail << std::endl;
+    for(int i=0; i <= tails.total_tail; i++){
+        outfile << tails.tail[i].x << " " << tails.tail[i].y << std::endl;
+        outfile << tails.t_angle[i] << std::endl;
+    }
+    outfile << score << std::endl;
+}
+
+void Snake::Setup2(const std::string &head_color, const std::string &body_color, const std::string &tail_color,
+                    const std::string &curve_color, const std::string &curveTail_color,
+                    const Vector2D &startPos, const short int &index, const GameText::TextColor &color) {
 	//snake head
 	snakeTexture = TextureManager::LoadTexture(head_color);
 	head = startPos;
@@ -143,12 +181,16 @@ void Snake::Direction() {
 					while (SDL_PollEvent(&Game::event)) {
 						switch(Game::event.type) {
 							case SDL_QUIT:
+							    Game::recordContinueGame();
 								exit(0);
 							case SDL_KEYDOWN:
 								switch(Game::event.key.keysym.sym) {
 									case SDLK_ESCAPE:
 										SDL_DestroyTexture(pause_texture);
 										return;
+//                                    case SDLK_e:
+//                                        Game::recordContinueGame();
+//
 								}
 						}
 					}
@@ -246,7 +288,7 @@ bool Snake::fruitInsideSnake() {
 }
 
 bool Snake::fruitInsideSnake(const Snake &other) {
-    for (int i=0; i<=other.tails.total_tail; i++){
+    for (int i=0; i<= other.tails.total_tail; i++){
         if (Fruit::fruit_pos == other.tails.tail[i]){
             std::cout << "qua trong player2\n";
             return true;
@@ -326,7 +368,7 @@ void Snake::RenderHighestScore(const Vector2D &pos, const Vector2D &size) {
 	game_highestScore.Render(pos, size);
 }
 
-void Snake::UpdateScore(string msg) {
+void Snake::UpdateScore(std::string msg) {
 	game_score.Update(score, msg);
 }
 
@@ -338,6 +380,10 @@ void Snake::UpdateHighestScore() {
 	if (!Game::isRunning) game_highestScore.Record(HighestScore);
 }
 
+//Vector2D Snake::getHead() const {
+//    return head;
+//}
+//
 //Tails Snake::getTails() const {
 //    return tails;
 //}

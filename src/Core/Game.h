@@ -18,10 +18,10 @@ const std::string WINDOW_TITLE = "Snake Game";
 
 class Game {
 	int frameTime;
-	int Quit = 0;
+	short int Quit = 0;
 
-	const int FPS = 15;
-	const int frameDelay = 1000 / FPS;
+	const short int FPS = 15;
+	const short int frameDelay = 1000 / FPS;
 
     SDL_Window* window;
     Uint32 frameStart;
@@ -43,9 +43,13 @@ public:
 	void waitUntilKeyPressed();
 
 	//setup
-	void randTypeMap();
 	void setup();
+	void setupContinue();
 	void setup2();
+
+    static void recordContinueGame();
+
+    void randTypeMap();
 	void randMap();
 
 	bool running();
@@ -60,7 +64,9 @@ public:
 	void render2();
 
 	//engine
-	void gameLoop();
+	void gameLoopNew();
+    void gameLoopContinue();
+    void gameLoop1_running();
 	void gameLoop2();
 
 	void clean();

@@ -15,6 +15,13 @@ void Fruit::Setup(const char *filePath) {
 	fruitTexture = TextureManager::LoadTexture(filePath);
 }
 
+void Fruit::setupContinueFruit(std::ifstream &file, const char *filePath) {
+    file >> fruit_src.x >> fruit_src.y >> fruit_score;
+    file >> fruit_pos.x >> fruit_pos.y;
+	fruitTexture = TextureManager::LoadTexture(filePath);
+}
+
+
 void Fruit::Render() {
 	SDL_RenderCopy(Game::renderer, fruitTexture, &srcR, &dstR);
 }
@@ -22,6 +29,12 @@ void Fruit::Render() {
 void Fruit::Update() {
 	TextureManager::SetPos(srcR, fruit_src, {size, size});
 	TextureManager::SetPos(dstR, fruit_pos, {size, size});
+}
+
+void Fruit::recordContinueFruit(std::ofstream &outfile) {
+    outfile << fruit_src.x << " " << fruit_src.y << std::endl;
+    outfile << fruit_score << std::endl;
+    outfile << fruit_pos.x << " " << fruit_pos.y << std::endl;
 }
 
 void Fruit::randTypeFruit(){

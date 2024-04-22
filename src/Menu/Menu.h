@@ -18,13 +18,17 @@ class Menu: public GameText {
 	SDL_Texture* music;
 	//MENU: 0: play game, 1: exit, 2: info, 3: music;
 
-
 	SDL_Rect pos_opt[NUM_PLAYER];
 	SDL_Rect src_opt[NUM_PLAYER];
 	bool selected_opt[NUM_PLAYER] ={0, 0};
 	SDL_Texture* mode[NUM_PLAYER];
 	SDL_Texture* option;
 	//OPTION: 0: exit, 1: player1, 2: player2;
+
+	SDL_Rect pos_state[STATE_PLAY];
+	SDL_Rect src_state[STATE_PLAY];
+	bool selected_state[STATE_PLAY] ={0, 0};
+	SDL_Texture* state[STATE_PLAY];
 
 	SDL_Rect pos_end[MENU_ITEM];
 	SDL_Rect src_end[MENU_ITEM];
@@ -41,7 +45,7 @@ class Menu: public GameText {
 	TTF_Font* font2 = NULL;
 
 	Score game_score;
-	int xm = 0, ym = 0;
+	short int xm = 0, ym = 0;
 	SDL_Event m_event;
 
 public:
@@ -49,12 +53,14 @@ public:
 	~Menu();
 
 	void Setup();
-	bool CheckFocusWithRect(const int& x, const int& y, const SDL_Rect& rect);
-	int showMenu();
-	int getNumPlayer();
-	int endMenu(const char* path);
-	int endMenu(const char* path, const int& score);
-	int eventEndMenu();
+	bool CheckFocusWithRect(const short int& x, const short int& y, const SDL_Rect& rect);
+	short int showMenu();
+	short int getNumPlayer();
+	short int getStatePlay();
+
+	short int endMenu(const char* path);
+    short int endMenu(const char* path, const int& score);
+	short int eventEndMenu();
 
 	void FreeTexture();
 };

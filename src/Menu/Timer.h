@@ -6,11 +6,9 @@
 #include "TextureManager.h"
 #include <time.h>
 
-using namespace std;
-
 class Timer: public GameText {
 	GameText time_text;
-	string val_str_time;
+	std::string val_str_time;
 	TTF_Font* font = NULL;
 	SDL_Rect dst_timer;
 	Uint32 time_val;

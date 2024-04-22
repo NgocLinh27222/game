@@ -39,6 +39,13 @@ void Menu::Setup() {
 	mode[PLAYER_1] = TextureManager::LoadTexture("res/gfx/Button/1P.png");
 	mode[PLAYER_2] = TextureManager::LoadTexture("res/gfx/Button/2P.png");
 
+	// STATE_PLAY NEW PLAY: 1, CONTINUE: 0
+	for (int i = 0; i < STATE_PLAY; i++)
+		TextureManager::SetPos(pos_state[i], Vector2D(250, 105 + i * 160), Vector2D(300, 130));
+	//texture
+    state[NEW_PLAY] = TextureManager::LoadTexture("res/gfx/Button/new_play.png");
+	state[CONTINUE] = TextureManager::LoadTexture("res/gfx/Button/continue.png");
+
 	/*END*/ //END: 0: play again, 1: exit, 2: back
 	//dst
 	TextureManager::SetPos(pos_end[PLAY_AGAIN], Vector2D(130, 310), Vector2D(210, 100));
@@ -52,12 +59,12 @@ void Menu::Setup() {
 }
 
 // check chuot
-bool Menu::CheckFocusWithRect(const int& x, const int& y, const SDL_Rect& rect) {
+bool Menu::CheckFocusWithRect(const short int& x, const short int& y, const SDL_Rect& rect) {
 	return (x >= rect.x && x <= rect.x + rect.w
 		   	&& y >= rect.y && y <= rect.y + rect.h);
 }
 
-int Menu::showMenu() {
+short int Menu::showMenu() {
 	if (!theme_music.isPlaying())
 		theme_music.playMusic(30);
 	TextureManager::SetPos(src_menu[PLAY_GAME], Vector2D(0, 0), Vector2D(225, 50));
@@ -168,7 +175,7 @@ int Menu::showMenu() {
 	return EXIT;
 }
 
-int Menu::getNumPlayer() {
+short int Menu::getNumPlayer() {
 	for (int i = 0; i < NUM_PLAYER; i++) {
 		TextureManager::SetPos(src_opt[i], Vector2D(0, 0), Vector2D(300, 130));
 	}
@@ -189,14 +196,14 @@ int Menu::getNumPlayer() {
 					ym = m_event.motion.y;
 					for (int i = 0; i < NUM_PLAYER; i++) {
 						if (CheckFocusWithRect(xm, ym, pos_opt[i])) {
-							if (!selected[i]) {
-								selected[i] = 1;
+							if (!selected_opt[i]) {
+								selected_opt[i] = 1;
 								TextureManager::SetPos(src_opt[i], Vector2D(300, 0), Vector2D(300, 130));
 							}
 						}
 						else {
-							if (selected[i]) {
-								selected[i] = 0;
+							if (selected_opt[i]) {
+								selected_opt[i] = 0;
 								TextureManager::SetPos(src_opt[i], Vector2D(0, 0), Vector2D(300, 130));
 							}
 						}
@@ -223,7 +230,72 @@ int Menu::getNumPlayer() {
 	return 0;
 }
 
-int Menu::endMenu(const char* path) {
+short int Menu::getStatePlay(){
+	std::ifstream file("res/Continue.txt");
+    int mark = 0;
+
+	//file rong
+	std::string s = "";
+	file >> s;
+	if(s == "")
+        mark = 1;
+
+    for(int i = 0; i < STATE_PLAY-mark; i++){
+		TextureManager::SetPos(src_state[i], Vector2D(0, 0), Vector2D(300, 130));
+    }
+
+    	while (true) {
+		SDL_RenderClear(Game::renderer);
+		SDL_RenderCopy(Game::renderer, option, NULL, NULL);
+		for (int i = 0; i < STATE_PLAY-mark; i++) {
+			SDL_RenderCopy(Game::renderer, state[i], &src_state[i], &pos_state[i]);
+		}
+		SDL_RenderPresent(Game::renderer);
+		while (SDL_PollEvent(&m_event)) {
+			switch(m_event.type) {
+				case SDL_QUIT:
+					return 0;
+				case SDL_MOUSEMOTION:
+					xm = m_event.motion.x;
+					ym = m_event.motion.y;
+					for (int i = 0; i < STATE_PLAY-mark; i++) {
+						if (CheckFocusWithRect(xm, ym, pos_state[i])) {
+							if (!selected_state[i]) {
+								selected_state[i] = 1;
+								TextureManager::SetPos(src_state[i], Vector2D(300, 0), Vector2D(300, 130));
+							}
+						}
+						else {
+							if (selected_state[i]) {
+								selected_state[i] = 0;
+								TextureManager::SetPos(src_state[i], Vector2D(0, 0), Vector2D(300, 130));
+							}
+						}
+					}
+					break;
+				case SDL_MOUSEBUTTONDOWN:
+					xm = m_event.button.x;
+					ym = m_event.button.y;
+					for (int i = 0; i < STATE_PLAY-mark; i++) {
+						if (CheckFocusWithRect(xm, ym, pos_state[i])) {
+							return i + 1;
+						}
+					}
+					break;
+				case SDL_KEYDOWN:
+					if (m_event.key.keysym.sym == SDLK_ESCAPE) {
+						return 0;
+					}
+				default:
+					break;
+			}
+		}
+	}
+	return 0;
+}
+
+
+short int Menu::endMenu(const char* path) {
 	end = TextureManager::LoadTexture(path);
 	TextureManager::SetPos(src_end[PLAY_AGAIN], Vector2D(0, 0), Vector2D(210, 100));
 	TextureManager::SetPos(src_end[EXIT], Vector2D(0, 0), Vector2D(210, 100));
@@ -244,7 +316,7 @@ int Menu::endMenu(const char* path) {
 	return 1;
 }
 
-int Menu::endMenu(const char* path, const int& score) {
+short int Menu::endMenu(const char* path, const int& score) {
 	end = TextureManager::LoadTexture(path);
 	game_score.Update(score, "Your score: ");
 	game_score.CreateText();
@@ -268,7 +340,7 @@ int Menu::endMenu(const char* path, const int& score) {
 	return 1;
 }
 
-int Menu::eventEndMenu(){
+short int Menu::eventEndMenu(){
     while (SDL_PollEvent(&m_event)) {
         switch(m_event.type) {
             case SDL_QUIT:
@@ -319,7 +391,7 @@ int Menu::eventEndMenu(){
                 break;
             case SDL_KEYDOWN:
                 if (m_event.key.keysym.sym == SDLK_ESCAPE) {
-                    return 1;
+                    return 0;
                 }
                 break;
             default:

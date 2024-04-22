@@ -16,7 +16,9 @@ public:
 	void Setup(const std::string &filePath);
 	void Setup2(const std::string &head_color, const std::string &body_color, const std::string &tail_color,
                 const std::string &curve_color, const std::string &curveTail_color,
-                const Vector2D &startPos, const int &index, const GameText::TextColor &color);
+                const Vector2D &startPos, const short int &index, const GameText::TextColor &color);
+	void setupContinueSnake(std::ifstream &file, const std::string &filePath);
+	void recordContinueSnake(std::ofstream &outfile);
 
 	// Movement
 	void Move();
@@ -57,7 +59,8 @@ public:
 	void UpdateScore(std::string msg);
 	void UpdateHighestScore();
 
-	//Tails getTails() const;
+//    Vector2D getHead() const;
+//	Tails getTails() const;
 
 	void FreeTexture();
 

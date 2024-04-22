@@ -17,7 +17,7 @@ Snake2 snake2;
 
 Fruit fruit;
 
-string Game::filepath = "";
+std::string Game::filepath = "";
 Map map_current;
 
 Menu endBackground;
@@ -65,7 +65,7 @@ void Game::logSDLError(std::ostream& os, const std::string &msg, bool fatal = fa
 }
 
 void Game::randTypeMap(){
-    int tmp = rand()%4 + 1;
+    short int tmp = rand()%4 + 1;
     filepath = "res/map/map" + std::to_string(tmp) + ".txt";
     //std::cout << filepath << std::endl;
 }
@@ -83,6 +83,21 @@ void Game::setup() {
         Fruit::Respawn();
     }
     while ( snake.fruitInsideSnake() || snake.fruitInsideBlock() );
+
+    endBackground.Setup();
+    home = false;
+}
+
+void Game::setupContinue() {
+    Game::isRunning = true;
+    background = TextureManager::LoadTexture("res/gfx/Background/background_play.png");
+    std::ifstream file;
+    file.open("res/Continue.txt");
+    file >> filepath;
+    map_current.Setup(filepath);
+    snake.setupContinueSnake(file, "res/gfx/Snake/snake.png");
+    fruit.setupContinueFruit(file, "res/gfx/Snake/Fruits/fruits.png");
+    file.close();
 
     endBackground.Setup();
     home = false;
@@ -106,6 +121,14 @@ void Game::setup2() {
     home = false;
 }
 
+void Game::recordContinueGame() {
+	std::ofstream outfile;
+	outfile.open("res/Continue.txt", std::ios::out | std::ios::trunc);
+	outfile << filepath << std::endl;
+	snake.recordContinueSnake(outfile);
+	fruit.recordContinueFruit(outfile);
+	outfile.close();
+}
 
 bool Game::running() {
 	return isRunning;
@@ -119,7 +142,8 @@ void Game::handleEvents()
 	{
 		case SDL_QUIT :
 			if (MessageBoxA(NULL, "Do you wanna quit?", "End game", MB_YESNO | MB_ICONQUESTION) == IDYES) {
-                    // hien thi hop thoai cau hoi yes no trong thu vien window.h
+                    // hien thi hop thoai cau hoi yes no trong thu vien window.h   // IDYES : YES
+                recordContinueGame();
 				isRunning = false;
 				Quit = 1;
 			}
@@ -172,39 +196,52 @@ void Game::render2() {
 	SDL_RenderPresent(renderer);
 }
 
-void Game::gameLoop() {
+void Game::gameLoopNew() {
 	setup();
-	while (running()) {
-		frameStart = SDL_GetTicks();
+	gameLoop1_running();
+}
 
-		handleEvents();
-		update();
-		render();
+void Game::gameLoopContinue() {
+    setupContinue();
+    gameLoop1_running();
+}
+
+void Game::gameLoop1_running() {
+    while (running()) {
+        frameStart = SDL_GetTicks();
+
+        handleEvents();
+        update();
+        render();
 
         // gioi han toc do khung hinh cua tro troi
-		frameTime = SDL_GetTicks() - frameStart;
-		if (frameDelay > frameTime)
-			SDL_Delay(frameDelay - frameTime);
-		if (Quit == 1)
-			isRunning = false;
-		else {
-			if (!isRunning) {
-				int chooseOption = endBackground.endMenu("res/gfx/Background/game_over.png", snake.getScore());
+        frameTime = SDL_GetTicks() - frameStart;
+        if (frameDelay > frameTime)
+            SDL_Delay(frameDelay - frameTime);
+        if (Quit == 1)
+            isRunning = false;
+        else {
+            if (!isRunning) {
+                std::ofstream outfile;
+                outfile.open("res/Continue.txt", std::ios::out | std::ios::trunc);
+                outfile << "";
+                outfile.close();
+                short int chooseOption = endBackground.endMenu("res/gfx/Background/game_over.png", snake.getScore());
 
-				if (chooseOption == PLAY_AGAIN) {
-					SDL_RenderClear(renderer);
-					endBackground.FreeTexture();
-					setup();
-					isRunning = true;
-				}
-				else if (chooseOption == BACK) {
-					SDL_RenderClear(renderer);
-					endBackground.FreeTexture();
-					home = true;
-				}
-			}
-		}
-	}
+                if (chooseOption == PLAY_AGAIN) {
+                    SDL_RenderClear(renderer);
+                    endBackground.FreeTexture();
+                    setup();
+                    isRunning = true;
+                }
+                else if (chooseOption == BACK) {
+                    SDL_RenderClear(renderer);
+                    endBackground.FreeTexture();
+                    home = true;
+                }
+            }
+        }
+    }
 }
 
 void Game::gameLoop2() {
@@ -226,8 +263,12 @@ void Game::gameLoop2() {
 		}
 		else {
 			if (!isRunning) {
+                std::ofstream outfile;
+                outfile.open("res/Continue.txt", std::ios::out | std::ios::trunc);
+                outfile << "";
+                outfile.close();
 				if (snake2.isWinner() == 1) {
-					int chooseOption = endBackground.endMenu("res/gfx/Background/P1_win.png");
+					short int chooseOption = endBackground.endMenu("res/gfx/Background/P1_win.png");
 					if (chooseOption == PLAY_AGAIN) {
 						SDL_RenderClear(renderer);
 						endBackground.FreeTexture();
@@ -241,7 +282,7 @@ void Game::gameLoop2() {
 					}
 				}
 				else if (snake2.isWinner() == 2) {
-					int chooseOption = endBackground.endMenu("res/gfx/Background/P2_win.png");
+					short int chooseOption = endBackground.endMenu("res/gfx/Background/P2_win.png");
 					if (chooseOption == PLAY_AGAIN) {
 						SDL_RenderClear(renderer);
 						endBackground.FreeTexture();

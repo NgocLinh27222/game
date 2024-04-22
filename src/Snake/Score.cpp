@@ -23,15 +23,15 @@ void Score::Render2(const Vector2D &pos, const Vector2D& size) {
 	score_text.Render(dst);
 }
 
-void Score::Update(const int &score, const string &str) {
-	string strScore = str;
-	val_str_score = to_string(score);
+void Score::Update(const int &score, const std::string &str) {
+	std::string strScore = str;
+	val_str_score = std::to_string(score);
 	strScore += val_str_score;
 	score_text.SetText(strScore);
 }
 
 int Score::getHighestScore() {
-	ifstream file("res/Highest Score.txt");
+	std::ifstream file("res/Highest Score.txt");
 	int highest_score;
 	file >> highest_score;
 	file.close();
@@ -39,8 +39,8 @@ int Score::getHighestScore() {
 }
 
 void Score::Record(const int &HighestScore) {
-	ofstream outfile;
-	outfile.open("res/Highest Score.txt", ios::out | ios::trunc);//
+	std::ofstream outfile;
+	outfile.open("res/Highest Score.txt", std::ios::out | std::ios::trunc);//
         // ios::out:tep duoc mo de ghi du lieu. Neu tep khong ton tai, tao tep moi.
         // ios::trunc: xoa bo noi dung cu
 	outfile << HighestScore;

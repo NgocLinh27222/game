@@ -2,6 +2,7 @@
 #define FRUIT_H
 
 #include "Game.h"
+#include <fstream>
 
 class Fruit{
 	SDL_Rect srcR, dstR;
@@ -16,8 +17,11 @@ public:
 	static int size;
 
 	void Setup(const char *filePath);
+    void setupContinueFruit(std::ifstream &file, const char *filePath);
 	void Render();
 	void Update();
+
+	void recordContinueFruit(std::ofstream &outfile);
 
     static void randTypeFruit();
 	static void Respawn();

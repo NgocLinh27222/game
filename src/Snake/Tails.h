@@ -4,8 +4,6 @@
 #include "Game.h"
 #include <vector>
 
-using namespace std;
-
 class Tails {
 	SDL_Texture* tailTexture;
 	SDL_Texture* lastTailTexture;
@@ -21,17 +19,17 @@ public:
 	Tails(){}
 	~Tails();
 
-    int size = TAILS_SIZE;
+    short int size = TAILS_SIZE;
 
-	vector<Vector2D> tail;
+	std::vector<Vector2D> tail;
 
-	int total_tail;
-    vector<int> t_angle;
+	short int total_tail;
+    std::vector<int> t_angle;
 
-	void Setup(const string& body, const string& tail_, const string& curve_, const string& curve_tail);
+	void Setup(const std::string& body, const std::string& tail_, const std::string& curve_, const std::string& curve_tail, short int totalTail = 3);
 	void Update();
 	void Render();
-	int getTotalTail();
+	//short int getTotalTail();
 
 	void FreeTexture();
 };

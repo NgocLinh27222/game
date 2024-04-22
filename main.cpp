@@ -19,13 +19,13 @@ int main(int argc, char* argv[]) {
     Home();
     delete game;
 	delete GameMenu;
-
  	return 0;
 }
 
 
+
 void Home(){
-    int i = GameMenu->showMenu();
+    short int i = GameMenu->showMenu();
 
     if (i == EXIT) //exit
         Game::isRunning = false;
@@ -56,9 +56,20 @@ void Home(){
 
     else {
         //play game
-        int numberOfPlayer = GameMenu->getNumPlayer();
+        short int numberOfPlayer = GameMenu->getNumPlayer();
         if (numberOfPlayer == 1) {
-            game->gameLoop();
+            short int state = GameMenu->getStatePlay();
+            if (state == 1){
+                std::ofstream outfile;
+                outfile.open("res/Continue.txt", std::ios::out | std::ios::trunc);
+                outfile << "";
+                outfile.close();
+                game->gameLoopNew();
+            }
+            else if(state == 2){
+                game->gameLoopContinue();
+            }
+
             if (Game::home == true){
                 Home();
                 return;

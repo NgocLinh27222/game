@@ -15,10 +15,10 @@ void Timer::Render() {
 }
 
 void Timer::Update() {
-	string strTime = "Timer: ";
+	std::string strTime = "Timer: ";
 	time_val = 60 - (SDL_GetTicks() -  Game::time_0) / 1000; // SDL_GetTicks tra ve thoi gian mili s
 	//60 seconds countdown
-	val_str_time = to_string(time_val);
+	val_str_time = std::to_string(time_val);
 	strTime += val_str_time;
 	time_text.SetText(strTime);
 }

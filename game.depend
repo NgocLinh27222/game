@@ -1,9 +1,9 @@
 # depslib dependency file v1.0
-1713604946 source:c:\users\adm\documents\github\game\main.cpp
+1713758546 source:c:\users\adm\documents\github\game\main.cpp
 	"Game.h"
 	"Menu.h"
 
-1713508447 source:c:\users\adm\documents\github\game\src\core\game.cpp
+1713758580 source:c:\users\adm\documents\github\game\src\core\game.cpp
 	"Game.h"
 	"TextureManager.h"
 	"Snake.h"
@@ -14,7 +14,7 @@
 	"Menu.h"
 	<string>
 
-1713506986 c:\users\adm\documents\github\game\src\core\game.h
+1713758607 c:\users\adm\documents\github\game\src\core\game.h
 	"SDL.h"
 	"SDL_image.h"
 	"SDL_ttf.h"
@@ -26,7 +26,7 @@
 	"General.h"
 	"Vector2D.h"
 
-1713508567 c:\users\adm\documents\github\game\src\core\general.h
+1713758620 c:\users\adm\documents\github\game\src\core\general.h
 
 1713405057 c:\users\adm\documents\github\game\src\core\texturemanager.h
 	"Game.h"
@@ -55,54 +55,55 @@
 	"Game.h"
 	<string>
 
-1713575167 source:c:\users\adm\documents\github\game\src\menu\menu.cpp
+1713758799 source:c:\users\adm\documents\github\game\src\menu\menu.cpp
 	"Menu.h"
 	"TextureManager.h"
 
-1713575169 c:\users\adm\documents\github\game\src\menu\menu.h
+1713758822 c:\users\adm\documents\github\game\src\menu\menu.h
 	"Game.h"
 	"GameText.h"
 	"Score.h"
 	"Audio.h"
 
-1712846268 source:c:\users\adm\documents\github\game\src\menu\timer.cpp
+1713759060 source:c:\users\adm\documents\github\game\src\menu\timer.cpp
 	"Timer.h"
 
-1713024759 c:\users\adm\documents\github\game\src\menu\timer.h
+1713759060 c:\users\adm\documents\github\game\src\menu\timer.h
 	"Game.h"
 	"GameText.h"
 	"TextureManager.h"
 	<time.h>
 
-1713507447 source:c:\users\adm\documents\github\game\src\snake\fruit.cpp
+1713758886 source:c:\users\adm\documents\github\game\src\snake\fruit.cpp
 	"Fruit.h"
 	"TextureManager.h"
 
-1713403712 c:\users\adm\documents\github\game\src\snake\fruit.h
+1713758901 c:\users\adm\documents\github\game\src\snake\fruit.h
 	"Game.h"
+	<fstream>
 
-1712917892 source:c:\users\adm\documents\github\game\src\snake\score.cpp
+1713758917 source:c:\users\adm\documents\github\game\src\snake\score.cpp
 	"Score.h"
 
-1713404908 c:\users\adm\documents\github\game\src\snake\score.h
+1713758928 c:\users\adm\documents\github\game\src\snake\score.h
 	"Game.h"
 	"GameText.h"
 	"TextureManager.h"
 	<fstream>
 
-1713532765 source:c:\users\adm\documents\github\game\src\snake\snake.cpp
+1713758940 source:c:\users\adm\documents\github\game\src\snake\snake.cpp
 	"Snake.h"
 	"Fruit.h"
 	"TextureManager.h"
 
-1713415874 c:\users\adm\documents\github\game\src\snake\snake.h
+1713758950 c:\users\adm\documents\github\game\src\snake\snake.h
 	"Game.h"
 	"Audio.h"
 	"Tails.h"
 	"Score.h"
 	"Map.h"
 
-1713025556 c:\users\adm\documents\github\game\src\snake\tails.h
+1713758991 c:\users\adm\documents\github\game\src\snake\tails.h
 	"Game.h"
 	<vector>
 
@@ -114,7 +115,7 @@
 	"Timer.h"
 	"TextureManager.h"
 
-1713574435 source:c:\users\adm\documents\github\game\src\snake\tails.cpp
+1713758972 source:c:\users\adm\documents\github\game\src\snake\tails.cpp
 	"Tails.h"
 	"TextureManager.h"
 	"Snake.h"

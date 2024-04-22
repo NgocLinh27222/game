@@ -7,13 +7,13 @@ Tails::~Tails() {
 	FreeTexture();
 }
 
-void Tails::Setup(const string& body, const string& tail_, const string& curve_, const string& curve_tail) {
+void Tails::Setup(const std::string& body, const std::string& tail_, const std::string& curve_, const std::string& curve_tail, short int totalTail) {
 	tailTexture = TextureManager::LoadTexture(body);
 	lastTailTexture = TextureManager::LoadTexture(tail_);
 	curveTexture = TextureManager::LoadTexture(curve_);
 	curveTailTexture = TextureManager::LoadTexture(curve_tail);
 
-	total_tail = 3;
+	total_tail = totalTail;
 	TextureManager::SetPos(t_srcCurve, {0, 0}, {20, 20});
 	curve.SetPos(-1, -1);
 
@@ -44,6 +44,7 @@ void Tails::Update() {
 
 }
 
+
 void Tails::Render() {
 	//Vẽ đuôi cuối cùng ở các đoạn cong
 	if (tail[total_tail] == curve) {
@@ -63,7 +64,7 @@ void Tails::Render() {
         if( (tail[0].x == 0 && tail[2].x == MAP_WIDTH-20) || (tail[0].x == MAP_WIDTH-20 && tail[2].x == 0) )
             t_angle[1] = t_angle[0];
     }
-	
+
 	// Vẽ các trường hợp thân cong và đánh dấu vị trí
 	for (int i = 1; i < total_tail; i++) {
 	    //   x

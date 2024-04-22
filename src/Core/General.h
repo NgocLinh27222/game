@@ -39,6 +39,7 @@
 /*Menu*/
 #define MENU_ITEM 4
 #define NUM_PLAYER 2
+#define STATE_PLAY 2
 
 /*Map*/
 #define MAP_WIDTH 800
@@ -55,6 +56,9 @@
 //MODE
 #define PLAYER_1 0
 #define PLAYER_2 1
+//STATE
+#define CONTINUE 1
+#define NEW_PLAY 0
 //END
 #define PLAY_AGAIN 0
 #define BACK 2
